@@ -1,0 +1,234 @@
+$mwn-primary: #6366f1;
+$mwn-secondary: #8b5cf6;
+$mwn-accent: #ec4899;
+$mwn-dark: #0f172a;
+$mwn-darker: #020617;
+$mwn-light: #f1f5f9;
+
+body {
+  background: linear-gradient(135deg, $mwn-darker 0%, #1e293b 100%);
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, $mwn-primary 0%, $mwn-secondary 50%, $mwn-accent 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.premium-btn {
+  background: linear-gradient(135deg, $mwn-primary 0%, $mwn-secondary 100%);
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 50% {
+    opacity: 1;
+  }
+  50.01%, 100% {
+    opacity: 0;
+  }
+}
+
+.toolbar-typewriter {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 16px;
+  gap: 6px;
+}
+
+.typewriter-text {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  min-height: 1.25rem;
+  white-space: nowrap;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1rem;
+  background: rgba(255, 255, 255, 0.85);
+  margin-left: 4px;
+  animation: cursorBlink 1s step-end infinite;
+}
+
+.toolbar-brand {
+  flex-wrap: nowrap;
+}
+
+.header-logo {
+  height: 80px;
+}
+
+@media (max-width: 640px) {
+  .toolbar-brand {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+    padding-top: 12px;
+  }
+
+  .toolbar-typewriter {
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  .typewriter-text {
+    white-space: normal;
+    text-align: center;
+  }
+
+  .header-logo {
+    height: 90px;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, $mwn-primary 0%, $mwn-secondary 100%);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, $mwn-secondary 0%, $mwn-accent 100%);
+}
+
+.transcript-segment {
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-left-color: $mwn-primary;
+    cursor: pointer;
+  }
+
+  .timestamp {
+    color: $mwn-primary;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-right: 12px;
+  }
+
+  .text {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+  }
+}
+
+.upload-zone {
+  border: 2px dashed rgba(99, 102, 241, 0.5);
+  border-radius: 16px;
+  padding: 48px;
+  text-align: center;
+  transition: all 0.3s ease;
+  background: rgba(99, 102, 241, 0.05);
+
+  &:hover, &.drag-over {
+    border-color: $mwn-primary;
+    background: rgba(99, 102, 241, 0.1);
+  }
+}
+
+.video-player {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+
+  video {
+    width: 100%;
+    display: block;
+  }
+}
+
+.progress-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, $mwn-primary 0%, $mwn-secondary 100%);
+    transition: width 0.3s ease;
+  }
+}
